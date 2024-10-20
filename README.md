@@ -18,7 +18,7 @@ This repository contains the Machine Learning Tasks I worked on while I was a Ma
 - Unzip the downloaded file to a folder on your local machine. It will contain files like `ne_110m_admin_0_countries.shp` and associated files.
 
 ## 5. Load the Shapefile into GeoPandas
-Specify the path to the extracted `.shp` file in your Python code:
+- Specify the path to the extracted `.shp` file in your Python code:
 
 ```python
 import geopandas as gpd
