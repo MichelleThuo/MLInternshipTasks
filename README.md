@@ -31,7 +31,7 @@ world = gpd.read_file('/path/to/ne_110m_admin_0_countries.shp')
 
 ## Note
 - Replace `'/path/to/ne_110m_admin_0_countries.shp'` with the actual file path on your system.
-- Make sure all the associated files from the zip are in the same directory when you load the `.shp` file, as they work together.
+- Make sure all the associated files from the zip are in the same directory when you load the `.shp` file, as they work together. (especially the `.shx` file)
 
 This should allow you to proceed with loading the base map for your geographic analysis!
 
