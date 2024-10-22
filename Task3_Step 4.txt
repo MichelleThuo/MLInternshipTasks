@@ -1,0 +1,36 @@
+# Make predictions using both models
+logistic_pred = logistic_model.predict(X_test)
+rf_pred = random_forest_model.predict(X_test)
+
+# Evaluate Logistic Regression model
+logistic_accuracy = accuracy_score(y_test, logistic_pred)
+logistic_precision = precision_score(y_test, logistic_pred, average='weighted')
+logistic_recall = recall_score(y_test, logistic_pred, average='weighted')
+
+print("Logistic Regression Performance:")
+print(f'Accuracy: {logistic_accuracy}')
+print(f'Precision: {logistic_precision}')
+print(f'Recall: {logistic_recall}')
+print("\nClassification Report for Logistic Regression:")
+print(classification_report(y_test, logistic_pred, target_names=label_encoder.classes_))
+
+# Evaluate Random Forest model
+rf_accuracy = accuracy_score(y_test, rf_pred)
+rf_precision = precision_score(y_test, rf_pred, average='weighted')
+rf_recall = recall_score(y_test, rf_pred, average='weighted')
+
+print("Random Forest Performance:")
+print(f'Accuracy: {rf_accuracy}')
+print(f'Precision: {rf_precision}')
+print(f'Recall: {rf_recall}')
+print("\nClassification Report for Random Forest:")
+print(classification_report(y_test, rf_pred, target_names=label_encoder.classes_))
+
+# Display confusion matrix for Random Forest
+conf_matrix = confusion_matrix(y_test, rf_pred)
+plt.figure(figsize=(10, 8))
+sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues', xticklabels=label_encoder.classes_, yticklabels=label_encoder.classes_)
+plt.xlabel('Predicted')
+plt.ylabel('Actual')
+plt.title('Confusion Matrix for Random Forest')
+plt.show()
